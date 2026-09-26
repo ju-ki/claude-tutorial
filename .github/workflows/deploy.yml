@@ -24,21 +24,21 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: todo/package-lock.json
+          cache-dependency-path: claude-tutorial/todo/package-lock.json
 
       - name: Install dependencies
         run: npm ci
-        working-directory: todo
+        working-directory: claude-tutorial/todo
 
       - name: Build
         run: npm run build
-        working-directory: todo
+        working-directory: claude-tutorial/todo
 
       - uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: todo/dist
+          path: claude-tutorial/todo/dist
 
   deploy:
     needs: build
